@@ -1,5 +1,5 @@
 import React from 'react';
-
+import createCalendar from './createCalendar';
 import './style.css';
 
 function App() {
@@ -63,6 +63,7 @@ function App() {
           </table>
       </div>
     );
-  }
+    createCalendar();
+}
 
   export default App;
