@@ -3,24 +3,22 @@
 function createArray()
 {
     let arr = [];
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 6; i++) {
 		arr[i] = Array(7).fill(null);
     }
     return(arr);
 }
 
-export default function createCalendar()
-{
+module.exports = (date, year, month) => {
     let calendar = createArray();
     //let calendar = [7][5];
-    let currentDate = new Date();
-    let year = currentDate.getFullYear();
-    let month = currentDate.getMonth();
-    let date = new Date(year, month);
+    
     let dayMonth = date.getDate();
     let weekNumber = 0;
-    while ((weekNumber < 5) && (month === date.getMonth()))
+    if ((year >= 1970) && (month < 12) && (month >= 0))
     {
+        while ((weekNumber < 6) && (month === date.getMonth()))
+        {
         switch(date.getDay())
         {
             case 0:
@@ -60,6 +58,8 @@ export default function createCalendar()
                 date = new Date(year, month, dayMonth);
                 break;     
         }
+        }
     }
+    
     return (calendar);
-}
+};

@@ -3,7 +3,11 @@ import createCalendar from './createCalendar';
 import './style.css';
 
 function App() {
-    let calendar = createCalendar();
+    let currentDate = new Date();
+    let year = currentDate.getFullYear();
+    let month = currentDate.getMonth();
+    let date = new Date(year, month);
+    let calendar = createCalendar(date, year, month);
     console.log(calendar);
     return (
         <div id="menu">
